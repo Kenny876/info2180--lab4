@@ -37,4 +37,27 @@ function myFunction() {
   
 }
 
+function end1(){
+  if (lose){
+    //alert("you lose");
+    document.getElementById("status").textContent = "YOU LOSE";
+  } else {
+    //alert("you win");
+    document.getElementById("status").textContent = "YOU WIN";
+    let maze = document.getElementById("maze");
+    maze.addEventListener("mouseleave",function(){
+        var x = document.querySelectorAll("#maze div.boundary");
+        for (var i = 0; i < x.length; i++) {
+    
+          x[i].classList.remove("youlose");
+        }
+        lose= false;
+        document.getElementById("status").textContent = "YOU WIN";
+        maze.addEventListener("mouseenter",function(){
+          location.reload();
+        });
+    });
 
+  }
+    
+}
