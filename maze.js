@@ -29,3 +29,12 @@ function myFunction() {
     
       x[i].classList.remove("youlose");
     }
+    lose= false;
+  
+  }
+  end.addEventListener("mouseover", end1);
+
+  
+}
+
+
