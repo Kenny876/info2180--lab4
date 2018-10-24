@@ -1,22 +1,14 @@
-window.onload = function() {
-    $("start").onclick = startClick;
-    $("end").onmouseover = overEnd;
-    $("maze").onmouseleave = noCheat;
-    var boundaries = $$("div#maze div.boundary");
-    for (var i = 0; i < boundaries.length; i++) {
-        boundaries[i].onmouseover = overBoundary;
-        boundaries[i].onmousleave = overBoundary;
-    }
+var lose = false ;
+
+window.onload = function(){
+  let startgame=document.getElementById("start");
+  startgame.addEventListener("mouseover",function(){
+    myFunction();
+    let maze = document.getElementById("maze");
+    maze.addEventListener("mouseleave",function(){
+    colour();
+    end1();
+    });
+  })
+  
 };
-
-function overBoundary() {
-    var x = document.getElementsByClassName("boundary");
-
-    for (var i = 0; i < x.length; i++) {
-        x[i].style.backgroundColor = "red";
-        if (x[i].style.backgroundColor == "red") {
-            var s = document.getElementById("status").innerHTML = "You Lose!";
-        }
-    }
-}
-
